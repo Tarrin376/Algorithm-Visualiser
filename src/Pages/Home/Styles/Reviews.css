@@ -1,0 +1,118 @@
+#profilePic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.review {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 10px;
+    color: rgb(236, 236, 236);
+    background: linear-gradient(to top right, rgba(0, 0, 0, 0.411), rgba(17, 17, 17, 0.589));
+    justify-content: center;
+}
+
+.reviewsComponent article {
+    width: 50%;
+}
+
+.reviewsComponent {
+    max-width: 1300px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    gap: 60px;
+}
+
+.leftArrow {
+    width: 22px;
+    height: 22px;
+}
+
+.reviewDesc {
+    border-right: 2px solid #da2cff;
+    padding: 30px;
+    padding-right: 70px;
+    padding-left: 70px;
+    color: rgb(236, 236, 236);
+    text-align: center;
+    background-color: #00000048;
+    width: 50%;
+}
+
+#rating {
+    width: 130px;
+    display: block;
+    margin: auto;
+}
+
+#reviewTitle {
+    color: #FFEAB4;
+    font-size: 32px;
+    letter-spacing: 0.8px;
+}
+
+#allReviews {
+    color: rgb(223, 223, 223);
+}
+
+#reviewInfo {
+    margin-top: 30px;
+}
+
+.line {
+    width: 2px;
+    height: 20px;
+    background-color: #da2cff;
+    margin: auto;
+}
+
+@media only screen and (max-width: 1240px) {
+    .reviewsComponent {
+        flex-direction: column;
+        margin-top: 70px;
+    }
+    .reviewDesc {
+        max-width: 610px;
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #da2cff;
+        margin-top: 30px;
+    }
+    .reviewsComponent article {
+        max-width: 610px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    #reviewTitle {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .review {
+        flex-direction: column;
+        text-align: center;
+    }
+    .review div {
+        display: none;
+    }
+    .leftArrow {
+        transform: rotate(-90deg);
+    }
+}
+
+@media only screen and (max-width: 556px) {
+    .reviewDesc {
+        margin-top: 0px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}

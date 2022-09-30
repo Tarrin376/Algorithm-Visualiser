@@ -1,0 +1,96 @@
+.header {
+    display: flex;
+    max-width: 1300px;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    gap: 70px;
+}
+
+.heading {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+main {
+    max-width: 1500px;
+    margin: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.heading h1 {
+    width: 500px;
+    font-size: 40px;
+    color: #FFEAB4;
+    font-weight: lighter;
+    margin-bottom: 30px;
+}
+
+.video {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading span {
+    transition: 0.1s linear all;
+}
+
+#codeVideo {
+    max-width: 630px;
+    width: 100%;
+    border-radius: 10px;
+    float: right;
+    overflow: hidden;
+    box-shadow: 7px 7px 10px rgba(12, 12, 12, 0.404);
+}
+
+@media only screen and (max-width: 1240px) {
+    .header {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .heading {
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .descAndReview {
+        justify-content: center;
+        width: 100%;
+    }
+    .titleButton {
+        margin: auto;
+    }
+    #codeVideo {
+        margin: auto;
+        margin-top: 30px;
+    }
+    .video {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 556px) {
+    .heading h1 {
+        font-size: 36px;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 30px;
+    }
+    #codeVideo {
+        margin: auto;
+        margin-top: 0px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .heading h1 {
+        font-size: 32px;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 30px;
+    }
+}

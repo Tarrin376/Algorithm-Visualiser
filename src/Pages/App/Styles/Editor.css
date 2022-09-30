@@ -1,0 +1,104 @@
+.editor {
+    display: flex;
+    justify-content: center;
+    height: 370px;
+    max-width: 1700px;
+    width: 100%;
+    margin: auto;
+    background-color: rgb(240, 244, 248);
+}
+
+.explanation {
+    border-left: 1px solid rgb(150, 146, 146);
+    width: 50%;
+}
+
+.dark-editor {
+    background-color: #2e323f !important;
+}
+
+.dark-editor * {
+    color: rgb(235, 235, 235) !important;
+}
+
+.editorWrapper {
+    width: calc(100% - 330px);
+    right: 0px;
+    position: fixed;
+    z-index: 0;
+    bottom: 0px;
+    transition: 0.2s all ease-in-out;
+    background-color: rgb(240, 244, 248);
+}
+
+.dark-wrapper {
+    background-color: #2e323f !important;
+}
+
+.editor > div {
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.code {
+    width: 50%;
+}
+
+#code {
+    max-width: 800px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(176, 116, 255, 0.8);
+}
+
+.complexityAnalysis {
+    box-shadow: 0px 5px 20px rgba(176, 116, 255, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.editor div h2 {
+    letter-spacing: 0.7px;
+    color: rgb(41, 43, 42);
+    margin-bottom: 10px;
+}
+
+.editor div p {
+    color: rgb(41, 43, 42);
+}
+
+.explanation h3 {
+    font-family: 'Arima Madurai', cursive;
+}
+
+#keys {
+    margin-top: 10px;
+    box-shadow: 0px 5px 20px rgba(255, 81, 162, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 1680px) {
+    .editorWrapper {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .editor {
+        flex-direction: column;
+        align-items: center;
+    }
+    .editor div {
+        width: 100%;
+        text-align: center;
+    }
+    .explanation {
+        height: 90%;
+        border: none;
+        border-bottom: 2px solid rgb(182, 126, 255);
+        border-top: 2px solid rgb(182, 126, 255);
+    }
+}

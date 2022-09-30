@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+}
+
+#appNav {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 80px;
+    transition: 0.2s all ease-in-out;
+    background-color: rgb(242, 244, 247);
+}
+
+#appNav ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 22px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.nav-dark {
+    background-color: #343A4A !important;
+}
+
+.nav-dark p, .nav-dark ul button {
+    color: rgb(235, 235, 235) !important;
+}
+
+.speed {
+    border-radius: 5px;
+    width: 140px;
+    cursor: pointer;
+    height: 33px;
+    padding: 3px;
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(176, 116, 255) !important;
+    border: 2px solid white !important;
+}
+
+#lightTheme, #darkTheme {
+    width: 70px;
+    height: 33px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease-in all;
+    background: rgb(255, 81, 162);
+    border: 2px solid white;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+    color: white;
+}
+
+#appTitle {
+    color: rgb(255, 81, 162);
+    letter-spacing: 0.6px;
+    font-size: 30px;
+    margin: 7.5px;
+}
+
+#lightTheme:hover, #darkTheme:hover {
+    background: rgb(245, 71, 152);
+}
+
+.rightSide {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#appNav ul li {
+    list-style: none;
+}
+
+.hoverItem button {
+    color: rgb(20, 20, 20);
+}
+
+.hoverItem button:hover {
+    border: 2px solid rgb(176, 116, 255);
+}
+
+.mobileNav {
+    position: fixed;
+    width: 310px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgb(176, 116, 255), rgb(255, 81, 162));
+    z-index: 1;
+    left: -310px;
+    transition: 0.2s ease-in-out left;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 30px;
+}
+
+.mobileContainer {
+    display: flex;
+}
+
+.cover {
+    position: fixed;
+    height: 100%;
+    width: calc(100vw - 310px);
+    background-color: rgba(14, 14, 14, 0.76);
+    z-index: 1;
+    left: 100vw;
+    transition: 0.2s ease-in-out left;
+}
+
+.mobileList {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column;
+    margin-top: 20px;
+    list-style: none;
+    border-right: 7px solid rgba(255, 255, 255, 0.37);
+}
+
+.mobileList li button:hover {
+    border: 2px solid white !important;
+}
+
+.mobileDark {
+    margin-right: 0px !important;
+    background-color: rgb(20, 20, 20) !important;
+    border: 2px solid rgb(20, 20, 20) !important;
+}
+
+.mobileDark:hover {
+    background-color: rgb(41, 41, 41) !important;
+    border: 2px solid rgb(41, 41, 41) !important;
+}
+
+.colourThemes {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.editorOrientation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+@media only screen and (max-width: 1500px) {
+    #appNav  {
+        gap: 30px;
+    }
+}
+
+@media only screen and (max-width: 1340px) {
+    #appNav ul {
+        display: none;
+    }
+    .mobileNavButton {
+        width: 70px;
+        height: 70px;
+        background: url('../../../Images/menu.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left: auto;
+        display: block !important;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #appTitle {
+        display: none;
+    }
+}
