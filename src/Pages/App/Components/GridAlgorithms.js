@@ -1,9 +1,6 @@
-import React, { useState, useRef, useEffect, useContext, createRef } from 'react';
-import { Algorithms } from '../services/Algorithms';
-import { TraversalAlgorithms } from '../services/Traversals';
-import { DynamicProgramming } from '../services/DynamicProgramming';
-import { Dijkstras } from '../services/Dijkstras';
+import React, { useState, useRef, useEffect, useContext, createRef, useMemo } from 'react';
 import { algorithmStorage } from '../services/AlgorithmStorage';
+import { Visualizations } from '../services/Visualizations';
 import '../Styles/GridAlgorithms.css';
 import { ContextProvider } from '../index';
 import Editor from './Editor';
@@ -56,13 +53,11 @@ function GridAlgorithms({ algorithm }) {
                         <button id="updateSize" disabled={context.disable} onClick={updateGridSize} 
                         className={context.disable ? 'disabled' : ''}>Update Size</button>
                     </div>
-                    <table className="grid">
-                        <Grid 
-                            row={row} col={col} algorithm={algorithm} 
-                            setStartSelected={setStartSelected} setEndSelected={setEndSelected}
-                            startSelected={startSelected} endSelected={endSelected}
-                        />
-                    </table>
+                    <Grid 
+                        row={row} col={col} algorithm={algorithm} 
+                        setStartSelected={setStartSelected} setEndSelected={setEndSelected}
+                        startSelected={startSelected} endSelected={endSelected}
+                    />
                 </div>
             </div>
             <Editor algorithm={algorithm}></Editor>
@@ -112,44 +107,11 @@ function Actions({ algorithm, setStartSelected, setEndSelected }) {
         setClear(true);
         context.setDisable(true);
 
-        const visualiseDFS = (startNode, grid) => {
-            TraversalAlgorithms.runDFS(startNode, grid, context.speed).then(({ prevNodes, end }) => {
-                TraversalAlgorithms.backtrackTraversal(prevNodes, end, grid, context.speed).then(() => {
-                    localStorage.setItem(algorithm, 'true');
-                });
-            });
-        };
-
-        const visualiseBFS = (startNode, grid) => {
-            TraversalAlgorithms.runBFS(startNode, grid, context.speed).then(({ prevNodes, end }) => {
-                TraversalAlgorithms.backtrackTraversal(prevNodes, end, grid, context.speed).then(() => {
-                    localStorage.setItem(algorithm, 'true');
-                });
-            });
-        };
-
-        const visualiseDP = (grid) => {
-            DynamicProgramming.run(grid, context.speed).then(({ end, grid }) => {
-                DynamicProgramming.backtrackDP(end, grid, context.speed).then(() => {
-                });
-            });
-        };
-
-        const visualiseDijkstras = (startNode, grid) => {
-            Dijkstras.run(startNode, grid, context.speed).then(({ grid, endNode, prevNodes }) => {
-                Dijkstras.backtrackDijkstra(grid, endNode, prevNodes, context.speed).then(() => {
-                    localStorage.setItem(algorithm, 'true');
-                });
-            });
-        };
-
-        const res = Algorithms.checkCells(grid, algorithm);
-        res.then((startNode) => {
-            if (algorithm === algorithmStorage.dfs) visualiseDFS(startNode, grid);
-            if (algorithm === algorithmStorage.bfs) visualiseBFS(startNode, grid);
-            if (algorithm === algorithmStorage.dp) visualiseDP(grid);
-            if (algorithm === algorithmStorage.dijkstra) visualiseDijkstras(startNode, grid);
-            setClear(false);
+        checkCells(grid, algorithm).then((startNode) => {
+            if (algorithm === algorithmStorage.dfs) Visualizations.visualiseDFS(startNode, grid, context.speed, setClear, algorithm,);
+            if (algorithm === algorithmStorage.bfs) Visualizations.visualiseBFS(startNode, grid, context.speed, setClear, algorithm);
+            if (algorithm === algorithmStorage.dp) Visualizations.visualiseDP(grid, context.speed, setClear, algorithm, createNumberMatrix);
+            if (algorithm === algorithmStorage.dijkstra) Visualizations.visualiseDijkstras(startNode, grid, context.speed, setClear, algorithm, createNumberMatrix);
         })
         .catch((error) => {
             context.setDisable(false);
@@ -201,17 +163,17 @@ function Actions({ algorithm, setStartSelected, setEndSelected }) {
     );
 }
 
-function Grid({ row, col, algorithm, setStartSelected, setEndSelected, startSelected, endSelected }) {
+function Grid(props) {
     const context = useContext(ContextProvider);
-    const gridRefs = useRef(new Array(row));
+    const gridRefs = useRef(new Array(props.row));
     
     useEffect(() => {
-        gridRefs.current = new Array(row);
+        gridRefs.current = new Array(props.row);
     });
 
     const removeStyle = (cell) => {
-        if (cell.classList.contains('startNodeSelected')) setStartSelected(false);
-        if (cell.classList.contains('endNodeSelected')) setEndSelected(false);
+        if (cell.classList.contains('startNodeSelected')) props.setStartSelected(false);
+        if (cell.classList.contains('endNodeSelected')) props.setEndSelected(false);
         cell.removeAttribute('class');
     };
 
@@ -221,24 +183,24 @@ function Grid({ row, col, algorithm, setStartSelected, setEndSelected, startSele
             return;
         }
 
-        if (context.startNode && !startSelected) {
+        if (context.startNode && !props.startSelected) {
             removeStyle(cell);
             context.setStartNode(false);
-            setStartSelected(true);
+            props.setStartSelected(true);
             cell.classList.add('startNodeSelected');
 
-            if (algorithm === algorithmStorage.dijkstra) {
+            if (props.algorithm === algorithmStorage.dijkstra) {
                 cell.classList.add('dijkstraStart');
                 cell.textContent = '0';
             }
         }
-        else if (context.endNode && !endSelected) {
+        else if (context.endNode && !props.endSelected) {
             removeStyle(cell);
             context.setEndNode(false);
-            setEndSelected(true);
+            props.setEndSelected(true);
             cell.classList.add('endNodeSelected');
 
-            if (algorithm === algorithmStorage.dijkstra) {
+            if (props.algorithm === algorithmStorage.dijkstra) {
                 cell.classList.add('dijkstraEnd');
                 cell.textContent = '0';
             }
@@ -251,7 +213,7 @@ function Grid({ row, col, algorithm, setStartSelected, setEndSelected, startSele
             }
         }
         else {
-            if (algorithm === algorithmStorage.dijkstra && (cell.classList.contains('dijkstraStart') 
+            if (props.algorithm === algorithmStorage.dijkstra && (cell.classList.contains('dijkstraStart') 
                 || cell.classList.contains('dijkstraEnd') || cell.classList.contains('obstacleSelected'))) {
                 cell.textContent = Math.floor(Math.random() * 20) + 1;
             }
@@ -260,17 +222,19 @@ function Grid({ row, col, algorithm, setStartSelected, setEndSelected, startSele
         }
     };
 
-    grid = constructGrid(gridRefs, row, col, context.darkMode, highlightCell);
+    grid = constructGrid(gridRefs, props.row, props.col, context.darkMode, highlightCell);
     return (
-        <tbody>
-            {grid.map((row, index) => {
-                return (
-                    <tr key={`${index}`}>
-                        {row.map((col) => col)}
-                    </tr>
-                );
-            })}
-        </tbody>
+        <table className="grid">
+            <tbody>
+                {grid.map((row, index) => {
+                    return (
+                        <tr key={`${index}`}>
+                            {row.map((col) => col)}
+                        </tr>
+                    );
+                })}
+            </tbody>
+        </table>
     );
 }
 
@@ -293,6 +257,41 @@ function constructGrid(gridRefs, row, col, darkMode, highlightCell) {
             );
         });
     });
+};
+
+function checkCells(grid, algorithm) {
+    return new Promise((resolve, reject) => {
+        if (algorithm === algorithmStorage.dp) resolve(null);
+        const startNode = find('startNodeSelected', grid);
+        if (startNode == null) reject("Start node has not been set.");
+        else resolve(startNode);
+    });
+}
+
+function find(startNode, grid) {
+    for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[0].length; j++) {
+            const element = grid[i][j].ref.current;
+            if (element.classList.contains(startNode)) {
+                return element;
+            }
+        }
+    }
+
+    return null;
+}
+
+function createNumberMatrix(grid) {
+    let matrix = [];
+    for (let i = 0; i < grid.length; i++) {
+        matrix.push([]);
+        for (let j = 0; j < grid[0].length; j++) {
+            const element = parseInt(grid[i][j].ref.current.textContent);
+            matrix[i].push(element);
+        }
+    }
+
+    return matrix;
 }
 
 export default GridAlgorithms;

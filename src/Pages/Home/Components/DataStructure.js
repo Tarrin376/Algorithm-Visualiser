@@ -35,25 +35,25 @@ function DataStructure() {
                     if u have not yet downloaded one. Happy coding!
                     </p>
                     <div className="editors">
-                        <a href="https://code.visualstudio.com/" target="_blank">
+                        <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer">
                             <div>
                                 <img src={vscode} alt="Visual Studio Code icon"/>
                                 <p>VS Code</p>
                             </div>
                         </a>
-                        <a href="https://www.jetbrains.com/" target="_blank">
+                        <a href="https://www.jetbrains.com/" target="_blank" rel="noreferrer">
                             <div>
                                 <img src={intellig} alt="Jetbrains icon"/>
                                 <p>JetBrains IDEs</p>
                             </div>
                         </a>
-                        <a href="https://www.sublimetext.com/" target="_blank">
+                        <a href="https://www.sublimetext.com/" target="_blank" rel="noreferrer">
                             <div id="secondLast">
                                 <img src={sublime} style={{'width': '105px'}} alt="Sublime Text icon"/>
                                 <p>Sublime Text</p>
                             </div>
                         </a>
-                        <a href="https://visualstudio.microsoft.com/" target="_blank">
+                        <a href="https://visualstudio.microsoft.com/" target="_blank" rel="noreferrer">
                             <div id="lastItem">
                                 <img src={vs} alt="Visual Studio icon"/>
                                 <p>Visual Studio</p>

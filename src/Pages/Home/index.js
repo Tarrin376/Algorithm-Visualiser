@@ -5,12 +5,12 @@ import DataStructure from './Components/DataStructure';
 import Footer from './Components/Footer';
 import Navbar from '../../Navbar';
 
-function Home() {
+function Home({ refreshInterval }) {
   return (
     <React.Fragment>
       <Navbar />
       <main>
-        <Header />
+        <Header refreshInterval={refreshInterval}/>
         <Reviews />
         <DataStructure />
       </main>

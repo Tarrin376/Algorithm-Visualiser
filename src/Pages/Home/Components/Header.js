@@ -16,6 +16,7 @@ function Header() {
         let left = true;
 
         setInterval(() => {
+            if (letters[0].current == null) return;
             if (index === letters.length / 2) {
                 for (let part of letters) part.current.style.color = '#FFEAB4';
                 left = true;

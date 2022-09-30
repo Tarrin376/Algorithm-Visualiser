@@ -34,7 +34,7 @@ function AppNavbar() {
                     <div></div>
                 </div>
                 <ul>
-                    <li className="hoverItem" style={{color: 'black'}}><Link to="/"><button disabled={context.disable}>Home</button></Link></li>
+                    <li className="hoverItem"><Link to="/"><button disabled={context.disable}>Home</button></Link></li>
                     <li className="hoverItem"><Link to="/about"><button disabled={context.disable}>About</button></Link></li>
                     <li className="hoverItem"><Link to="/support"><button disabled={context.disable}>Support</button></Link></li>
                     <li className="rightSide">
@@ -59,9 +59,9 @@ function MobileAppNavbar({ mobileNavbar, cover, toggleMobileNav, context }) {
                 <div id="exit" onClick={toggleMobileNav}><p>X</p></div>
                 <h1 id="appTitle" style={{color: 'white', display: 'block', textAlign: 'center'}}>Algorithmic</h1>
                 <ul className="mobileList">
-                    <li className="hoverItem"><Link to="/"><button disabled={context.disable}>Home</button></Link></li>
-                    <li className="hoverItem"><Link to="/about"><button disabled={context.disable}>About</button></Link></li>
-                    <li className="hoverItem"><Link to="/support"><button disabled={context.disable}>Support</button></Link></li>
+                    <li className="hoverItem"><Link to="/"><button disabled={context.disable} style={{color: 'white'}}>Home</button></Link></li>
+                    <li className="hoverItem"><Link to="/about"><button disabled={context.disable} style={{color: 'white'}}>About</button></Link></li>
+                    <li className="hoverItem"><Link to="/support"><button disabled={context.disable} style={{color: 'white'}}>Support</button></Link></li>
                 </ul>
                 <div className="colourThemes">
                     <button id="lightTheme" onClick={() => context.toggleTheme(false)} disabled={context.disable}>Light</button>

@@ -1,5 +1,3 @@
-import { Algorithms } from "./Algorithms";
-
 export class DynamicProgramming {
     static showEnd = (dp, grid) => {
         let min = [Infinity, null, -1];
@@ -32,8 +30,8 @@ export class DynamicProgramming {
         this.modifyCellStyle(row, index, grid, next[index], speed);
     }
 
-    static async run(grid, speed) {
-        let m = Algorithms.createNumberMatrix(grid);
+    static async run(grid, speed, createNumberMatrix) {
+        let m = createNumberMatrix(grid);
         let dp = m[0].map((i) => i);
 
         for (let i = 0; i < grid.length; i++) {

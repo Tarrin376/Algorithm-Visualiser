@@ -146,7 +146,7 @@ const TopicLists = ({ algorithms, changeAlgorithm, algorithm, darkMode }) => {
       {algorithms.map((curAlgorithm) => {
         return (
           <li key={curAlgorithm.name} onClick={() => changeAlgorithm(curAlgorithm)} 
-            style={ (curAlgorithm.name === algorithm) ? { textDecoration : 'underline' } : {}}>
+            style={(curAlgorithm.name === algorithm) ? { textDecoration : 'underline' } : {}}>
             <div className="topicWrapper">
               <p className={darkMode ? 'topic-dark' : ''}>{curAlgorithm.name}</p>
               <div className={checkCompleted(0, curAlgorithm.name) === 1 ? 'completed' : ''}></div>

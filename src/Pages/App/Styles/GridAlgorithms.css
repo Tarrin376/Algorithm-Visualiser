@@ -188,11 +188,12 @@
     display: flex;
     width: fit-content;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     background-color: rgba(26, 26, 26, 0.411);
     padding: 10px;
     border-radius: 10px;
-    height: 45px;
 }
 
 .keys div {

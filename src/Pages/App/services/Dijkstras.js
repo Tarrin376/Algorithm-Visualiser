@@ -1,13 +1,12 @@
-import { Algorithms } from '../services/Algorithms';
 import Heap from 'heap-js';
 
 export class Dijkstras {
-    static async run(startNode, grid, speed) {
+    static async run(startNode, grid, speed, createNumberMatrix) {
         let [startRow, startCol] = startNode.id.split(',');
         startRow = parseInt(startRow);
         startCol = parseInt(startCol);
 
-        const matrix = Algorithms.createNumberMatrix(grid);
+        const matrix = createNumberMatrix(grid);
         const prevNodes = new Array(grid.length * grid[0].length).fill(-1);
         const distances = new Array(grid.length * grid[0].length).fill(Infinity);
         const neighbors = [[-1, 0], [0, 1], [1, 0], [0, -1]];
