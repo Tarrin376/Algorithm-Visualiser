@@ -43,9 +43,15 @@ export class DynamicProgramming {
                 await new Promise(resolve => setTimeout(resolve, speed * 2));
 
                 if (i + 1 < m.length) {
-                    if (dp[j] + m[i + 1][j] < next[j]) this.updateCell(next, j, dp[j] + m[i + 1][j], grid, i + 1, speed);
-                    if (j - 1 >= 0 && dp[j] + m[i + 1][j - 1] < next[j - 1]) this.updateCell(next, j - 1, dp[j] + m[i + 1][j - 1], grid, i + 1, speed);
-                    if (j + 1 < dp.length && dp[j] + m[i + 1][j + 1] < next[j + 1]) this.updateCell(next, j + 1, dp[j] + m[i + 1][j + 1], grid, i + 1, speed);
+                    if (dp[j] + m[i + 1][j] < next[j]) {
+                        this.updateCell(next, j, dp[j] + m[i + 1][j], grid, i + 1, speed);
+                    }
+                    if (j - 1 >= 0 && dp[j] + m[i + 1][j - 1] < next[j - 1]) {
+                        this.updateCell(next, j - 1, dp[j] + m[i + 1][j - 1], grid, i + 1, speed);
+                    }
+                    if (j + 1 < dp.length && dp[j] + m[i + 1][j + 1] < next[j + 1]) {
+                        this.updateCell(next, j + 1, dp[j] + m[i + 1][j + 1], grid, i + 1, speed);
+                    }
                 }
         
                 await new Promise(resolve => setTimeout(resolve, speed * 2));

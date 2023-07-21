@@ -20,8 +20,8 @@ export const guideData = [
         title: "Changing the size of the grid",
         src: gridSize,
         desc: `
-            To change the size of the grid, simply choose the number of rows that you want in the grid by inputting a number from 1 to the maximum value in the 'Row' input box. 
-            Repeat for the column input. After you are happy with your values, click 'Update Size' and it will successfully update the grid's dimensions.
+            To change the size of the grid, input the number of rows and columns that you want the grid to have. After you are happy with your values, 
+            click 'Update Size' and it will update the grid's dimensions.
         `,
     },
     {
@@ -30,17 +30,15 @@ export const guideData = [
         desc: `
             To view the code examples and explanations, navigate to the bottom of the page and look for the white rectangle which is the toggle button to open and close the widget. 
             If you would like to close this widget, simply click the rectangle again and it will close. 
-            It is important to note that you will not be able to toggle the editor during the runtime of the algorithms so make sure to choose your preferred option before clicking 'Run'!
+            It is important to note that you will not be able to toggle the editor during the runtime of an algorithm so make sure you choose your preferred option before clicking 'Run'!
         `,
     },
     {
         title: "Toggling the theme",
         src: toggleTheme,
         desc: `
-            To change between light and dark mode, navigate up to the navigation bar in the top right corner. 
-            Here, you will see two options: Light and Dark. To switch to light mode, click the 'Light' button. 
-            To switch to dark mode, click the 'Dark' button. 
-            Note that you cannot change the theme during the visualization process of any algorithm so choose one before you hit 'Run'.
+            If you want to change your theme, navigate to the top of the page and select your preferred theme option.
+            Note that you cannot change the theme during the visualization process of an algorithm so choose one before you hit 'Run'.
         `,
     }
 ];

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext, createRef, useMemo } from 'react';
+import React, { useState, useRef, useEffect, useContext, createRef } from 'react';
 import { algorithmStorage } from '../services/AlgorithmStorage';
 import { Visualizations } from '../services/Visualizations';
 import '../Styles/GridAlgorithms.css';

@@ -9,33 +9,33 @@ function Footer() {
                 <div className="footerContent">
                     <div>
                         <h3>Pricing</h3>
-                        <a href="#"><p>Overview</p></a>
-                        <a href="#"><p>Premium Plans</p></a>
-                        <a href="#"><p>Affiliate Program</p></a>
-                        <a href="#"><p style={{'marginBottom': '0px'}}>Promotions</p></a>
+                        <p>Overview</p>
+                        <p>Premium Plans</p>
+                        <p>Affiliate Program</p>
+                        <p style={{'marginBottom': '0px'}}>Promotions</p>
                     </div>
                     <div>
                         <h3>Company</h3>
-                        <a href="#"><p>About Us</p></a>
-                        <a href="#"><p>Blog</p></a>
-                        <a href="#"><p>Partnerships</p></a>
-                        <a href="#"><p>Press</p></a>
-                        <a href="#"><p style={{'marginBottom': '0px'}}>Careers</p></a>
+                        <p>About Us</p>
+                        <p>Blog</p>
+                        <p>Partnerships</p>
+                        <p>Press</p>
+                        <p style={{'marginBottom': '0px'}}>Careers</p>
                     </div>
                     <div>
                         <h3>Resources</h3>
-                        <a href="#"><p>Application</p></a>
-                        <a href="#"><p>Documentation</p></a>
-                        <a href="#"><p>API</p></a>
-                        <a href="#"><p>Systems</p></a>
-                        <a href="#"><p style={{'marginBottom': '0px'}}>FAQ</p></a>
+                        <p>Application</p>
+                        <p>Documentation</p>
+                        <p>API</p>
+                        <p>Systems</p>
+                        <p style={{'marginBottom': '0px'}}>FAQ</p>
                     </div>
                     <div>
                         <h3>Social</h3>
-                        <a href="#"><p>Facebook</p></a>
-                        <a href="#"><p>Twitter</p></a>
-                        <a href="#"><p>Instagram</p></a>
-                        <a href="#"><p style={{'marginBottom': '0px'}}>LinkedIn</p></a>
+                        <p>Facebook</p>
+                        <p>Twitter</p>
+                        <p>Instagram</p>
+                        <p style={{'marginBottom': '0px'}}>LinkedIn</p>
                     </div>
                 </div>
             </div>

@@ -21,8 +21,13 @@ export class Dijkstras {
             matrix[node[0]][node[1]] = -1;
 
             const element = grid[node[0]][node[1]].ref.current;
-            if (element.classList.contains('endNodeSelected')) return { grid, endNode: [node[0], node[1]], prevNodes};
-            if (!element.classList.contains('startNodeSelected')) element.classList.add('visited');
+            if (element.classList.contains('endNodeSelected')) {
+                return { grid, endNode: [node[0], node[1]], prevNodes};
+            }
+
+            if (!element.classList.contains('startNodeSelected')) {
+                element.classList.add('visited');
+            }
 
             for (let neighbor of neighbors) {
                 const row = node[0] + neighbor[0];
