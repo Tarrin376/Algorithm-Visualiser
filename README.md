@@ -1,6 +1,6 @@
 # Algorithm Visualizer
 
-#### A tool to visualize different algorithms to help users get an understanding of how they work.
+#### A tool to visualize different algorithms to help users get an understanding of how they work. Users can customize the behaviour of the algorithms by adding obstacles to the grid and changing the start and end points.
 
 Technologies used:
 - React.js
@@ -8,11 +8,11 @@ Technologies used:
 ![Screenshot of app](image.png)
 
 I built this project to make it easier to understand and analyze the behavior of different algorithms to help users solidify their understanding of them.
-My goal was to make more difficult algorithm topics such as Dynamic Programming and Dijkstras Algorithm, easier to dijest for students that are interested in these algorithms, preparing for their coding interviews, or both! Users can customize the behaviour of the algorithms by adding obstacles to the grid and changing the start and end points.
+My goal was to make more difficult algorithm topics such as Dynamic Programming and Dijkstras Algorithm, easier to dijest for students that are interested in these algorithms, preparing for their coding interviews, or both!
 
 ## Current supported algorithms
 
-Here is a list of all the algorithms that can be visualized:
+Here is a list of algorithms that can be visualized:
 
 - Depth-First Search
 - Breadhth-First Search
