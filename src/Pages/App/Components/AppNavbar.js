@@ -34,12 +34,20 @@ function AppNavbar() {
                     <div></div>
                 </div>
                 <ul>
-                    <li className="hoverItem"><Link to="/"><button disabled={context.disable}>Home</button></Link></li>
-                    <li className="hoverItem"><Link to="/about"><button disabled={context.disable}>About</button></Link></li>
-                    <li className="hoverItem"><Link to="/support"><button disabled={context.disable}>Support</button></Link></li>
+                    <li className="hoverItem">
+                        <Link to="/">
+                            <button disabled={context.disable}>
+                                Home
+                            </button>
+                        </Link>
+                    </li>
                     <li className="rightSide">
-                        <button id="lightTheme" onClick={() => context.toggleTheme(false)} disabled={context.disable} className={context.disable ? 'disabled' : ''}>Light</button>
-                        <button id="darkTheme" onClick={() => context.toggleTheme(true)} disabled={context.disable} className={context.disable ? 'disabled' : ''}>Dark</button>
+                        <button id="lightTheme" onClick={() => context.toggleTheme(false)} disabled={context.disable} className={context.disable ? 'disabled' : ''}>
+                            Light
+                        </button>
+                        <button id="darkTheme" onClick={() => context.toggleTheme(true)} disabled={context.disable} className={context.disable ? 'disabled' : ''}>
+                            Dark
+                        </button>
                         <p style={{color: 'rgb(20, 20, 20)'}}>Speed:</p>
                         <select className={context.disable ? 'disabled speed' : ' speed'} value={context.speed} 
                         onChange={(e) => context.setSpeed(e.target.value)} disabled={context.disable}>
@@ -59,9 +67,13 @@ function MobileAppNavbar({ mobileNavbar, cover, toggleMobileNav, context }) {
                 <div id="exit" onClick={toggleMobileNav}><p>X</p></div>
                 <h1 id="appTitle" style={{color: 'white', display: 'block', textAlign: 'center'}}>Algorithmic</h1>
                 <ul className="mobileList">
-                    <li className="hoverItem"><Link to="/"><button disabled={context.disable} style={{color: 'white'}}>Home</button></Link></li>
-                    <li className="hoverItem"><Link to="/about"><button disabled={context.disable} style={{color: 'white'}}>About</button></Link></li>
-                    <li className="hoverItem"><Link to="/support"><button disabled={context.disable} style={{color: 'white'}}>Support</button></Link></li>
+                    <li className="hoverItem">
+                        <Link to="/">
+                            <button disabled={context.disable} style={{color: 'white'}}>
+                                Home
+                            </button>
+                        </Link>
+                    </li>
                 </ul>
                 <div className="colourThemes">
                     <button id="lightTheme" onClick={() => context.toggleTheme(false)} disabled={context.disable}>Light</button>

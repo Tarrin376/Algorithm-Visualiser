@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import arrow from '../../../Images/arrow.png';
 import codeVideo from '../../../Images/vid.mp4';
 import '../../../Navbar.css';
@@ -6,26 +6,23 @@ import '../Styles/Header.css';
 import { Link } from 'react-router-dom';
 
 function Header() {
-    const letters = new Array(10);
-    for (let i = 0; i < letters.length; i++) {
-        letters[i] = React.createRef();
-    }
+    const letters = useRef(new Array(10).fill(0).map((_) => React.createRef()));
 
     useEffect(() => {
         let index = 0;
         let left = true;
 
         setInterval(() => {
-            if (letters[0].current == null) return;
-            if (index === letters.length / 2) {
-                for (let part of letters) part.current.style.color = '#FFEAB4';
+            if (letters.current[0].current == null) return;
+            if (index === letters.current.length / 2) {
+                for (let part of letters.current) part.current.style.color = '#FFEAB4';
                 left = true;
                 index = 0;
                 return;
             }
 
-            letters[index].current.style.color = '#da2cff';
-            index = (letters.length - 1) - index;
+            letters.current[index].current.style.color = '#da2cff';
+            index = (letters.current.length - 1) - index;
             left = !left;
             
             if (left) {
@@ -40,10 +37,10 @@ function Header() {
                 <div className="heading">
                     <div>
                         <h1>Learn
-                            <span ref={letters[0]}> A</span><span ref={letters[1]}>l</span><span ref={letters[2]}>g</span>
-                            <span ref={letters[3]}>o</span><span ref={letters[4]}>r</span><span ref={letters[5]}>i</span>
-                            <span ref={letters[6]}>t</span><span ref={letters[7]}>h</span><span ref={letters[8]}>m</span>
-                            <span ref={letters[9]}>s</span>
+                            <span ref={letters.current[0]}> A</span><span ref={letters.current[1]}>l</span><span ref={letters.current[2]}>g</span>
+                            <span ref={letters.current[3]}>o</span><span ref={letters.current[4]}>r</span><span ref={letters.current[5]}>i</span>
+                            <span ref={letters.current[6]}>t</span><span ref={letters.current[7]}>h</span><span ref={letters.current[8]}>m</span>
+                            <span ref={letters.current[9]}>s</span>
                         , problem solve, become a better developer</h1>
                         <Link to="/dashboard" style={{textDecoration: 'none', color: 'white'}}>
                             <button id="getStarted" className="titleButton"><img src={arrow} alt="arrow"/>Get Started</button>

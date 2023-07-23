@@ -128,20 +128,33 @@ function Actions({ algorithm, setStartSelected, setEndSelected }) {
             {actionsDiv && <div className="actions" ref={actions}>
                 <h2 style={{color: 'white'}}>{algorithm}</h2>
                 <div className="actionButtons">
-                    {algorithm !== algorithmStorage.dp && <button 
-                        disabled={context.disable} className={context.disable ? 'disabled' : context.startNode ? 'selectedChoice' : ''} 
-                        onClick={() => selectButton(context.setStartNode, context.startNode)}>Set Start Node
+                    {algorithm !== algorithmStorage.dp && 
+                        <button 
+                        disabled={context.disable} 
+                        className={context.disable ? 'disabled' : context.startNode ? 'selectedChoice' : ''} 
+                        onClick={() => selectButton(context.setStartNode, context.startNode)}>
+                            Set Start Node
                     </button>}
-                    {algorithm !== algorithmStorage.dp && <button 
-                        disabled={context.disable} className={context.disable ? 'disabled' : context.endNode ? 'selectedChoice' : ''} 
-                        onClick={() => selectButton(context.setEndNode, context.endNode)}>Set End Node
+                    {algorithm !== algorithmStorage.dp && 
+                    <button 
+                    disabled={context.disable} 
+                    className={context.disable ? 'disabled' : context.endNode ? 'selectedChoice' : ''} 
+                    onClick={() => selectButton(context.setEndNode, context.endNode)}>
+                        Set End Node
                     </button>}
-                    {algorithm !== algorithmStorage.dp && <button 
-                        disabled={context.disable} className={context.disable ? 'disabled' : context.obstacle ? 'selectedChoice' : ''}  
-                        onClick={() => selectButton(context.setObstacle, context.obstacle)}>Place Obstacle
+                    {algorithm !== algorithmStorage.dp && 
+                    <button 
+                    disabled={context.disable} 
+                    className={context.disable ? 'disabled' : context.obstacle ? 'selectedChoice' : ''}  
+                    onClick={() => selectButton(context.setObstacle, context.obstacle)}>
+                        Place Obstacle
                     </button>}
-                    <button onClick={clearCells} ref={clearButton} disable={`${clear}`} className={clear ? 'disabled' : ''}>Reset</button>
-                    <button disabled={context.disable} className={context.disable ? 'disabled' : ''} onClick={runVisual}>Run</button>
+                    <button onClick={clearCells} ref={clearButton} disable={`${clear}`} className={clear ? 'disabled' : ''}>
+                        Reset
+                    </button>
+                    <button disabled={context.disable} className={context.disable ? 'disabled' : ''} onClick={runVisual}>
+                        Run
+                    </button>
                 </div>
                 <div className="keys">
                     <div id="algorithm">
