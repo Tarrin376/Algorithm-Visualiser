@@ -7,7 +7,7 @@ Technologies used:
 
 ![Screenshot of app](image.png)
 
-I built this project to make it easier to understand and analyze the behavior of different algorithms to help users solidify their understanding of them.
+I built this project to make it easier to understand and analyze the behavior of different algorithms, while also helping users solidify their understanding of them.
 My goal was to make more difficult algorithm topics such as Dynamic Programming and Dijkstras Algorithm, easier to dijest for students that are interested in these algorithms, preparing for their coding interviews, or both!
 
 ## Supported algorithms
