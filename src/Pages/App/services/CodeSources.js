@@ -8,9 +8,8 @@ export const codeSources = Object.freeze({
       codeImage: <img src={dfs} id="code" alt="dfs code"></img>,
       codeExplanation: `
         In my implementation, I am assuming that the graph is undirected and can contain cycles. The 'edges' array contains each edge of the graph
-        to help you understand how you would construct an adjacency list (see the function 'construct_graph' on how to do this). In our dfs function,
-        we have two parameters: 'source' and 'target'. In this dfs function, we are just returning whether you can reach from 'source' to 'target' in
-        the graph. Firstly, we create a 'visited' array of size N, where N is the number of vertices in the graph. The 'visited' array is used to indicate whether
+        to help you understand how you would construct an adjacency list (see the function 'construct_graph' on how to do this). In the 'dfs' function,
+        we have two parameters: 'source' and 'target'. Firstly, in the 'dfs' function, we create a 'visited' array of size N, where N is the number of vertices in the graph. The 'visited' array is used to indicate whether
         a node has already been visited or not. This is to prevent our algorithm from going into infinite recursion when a cycle is found. Next, we
         call the 'helper' function that runs the traversal of the graph. In this function, we do two checks before iterating over the neighbors of the
         node. After this, we set our node as visited and iterate over all of the node's neighbors. 
@@ -25,14 +24,14 @@ export const codeSources = Object.freeze({
     'Breadth-First Search': {
       codeImage: <img src={bfs} id="code" alt="bfs code"></img>,
       codeExplanation: `
-        Like my implementation of the depth-first search algorithm, I am assuming that the graph is undirected and can contain cycles. 
+        In my implementation, I am assuming that the graph is undirected and can contain cycles. 
         The 'edges' array contains each edge of the graph to help you understand how you would construct an adjacency list 
         (see the function 'construct_graph' on how to do this). In our bfs function, we have a 'visited' array that will be used to prevent
-        an infinite loop in our traversal by allowing us to know whether a node was already visited or not. Initially, we set the 'source' node
-        as visited before the traversal. This is because we will be setting the node's neighbor as visited rather than the node itself. The reason
-        is that if you set the node as visited only when that node is being processed, there is no guarantee that this node will only be added once to the
-        queue (think of why this might be). In the while loop, we keep iterating until the queue is empty to ensure that we have visited as many nodes
-        as we can from the given source node. In each iteration, we check that the node is the target node and return true, otherwise, we iterate over 
+        an infinite loop in our traversal. Initially, we set the 'source' node as visited before the traversal. 
+        This is because we will be setting the node's neighbors as visited rather than the node itself. The reason is that if you set the node as 
+        visited only when that node is being processed, there is no guarantee that nodes are only added once to the
+        queue (think of why this is the case). In the while loop, we keep iterating until the queue is empty to ensure that we have visited as many nodes
+        as we can from the given source node. In each iteration, we check that the node is the target node and then return true, otherwise, we iterate over 
         each neighbor and only add the neighbor to the queue if it has not already been visited.
       `,
       keys: 'V = number of vertices, E = number of edges',
