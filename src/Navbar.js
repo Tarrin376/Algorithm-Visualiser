@@ -52,9 +52,13 @@ const NavButton = ({ showNav, mobileButton }) => {
 const DesktopNavBar = () => {
     return (
         <ul id="desktopNav">
-            <li className="hoverItem"><Link to="/"><button style={{color: 'white'}}>Home</button></Link></li>
-            <li className="hoverItem"><Link to="/about"><button style={{color: 'white'}}>About</button></Link></li>
-            <li className="hoverItem"><Link to="/support"><button style={{color: 'white'}}>Support</button></Link></li>
+            <li className="hoverItem">
+                <Link to="/">
+                    <button style={{color: 'white'}}>
+                        Home
+                    </button>
+                </Link>
+            </li>
             <li id="question">New to this platform?</li>
             <li style={{'marginRight': '0', 'marginLeft': '10px'}}>
                 <Link to="/dashboard" style={{textDecoration: 'none', color: 'white'}}>
@@ -77,9 +81,13 @@ const MobileNavBar = ({ showNav, mobileButton }) => {
             <ul id="mobileNav">
                 <div id="exit" onClick={rotateButton}><p>X</p></div>
                 <li><h1 style={{'visibility': 'visible'}}>Algorithmic</h1></li>
-                <li className="hoverItem"><Link to="/"><button style={{color: 'white'}}>Home</button></Link></li>
-                <li className="hoverItem"><Link to="/about"><button style={{color: 'white'}}>About</button></Link></li>
-                <li className="hoverItem"><Link to="/support"><button style={{color: 'white'}}>Support</button></Link></li>
+                <li className="hoverItem">
+                    <Link to="/">
+                        <button style={{color: 'white'}}>
+                            Home
+                        </button>
+                    </Link>
+                </li>
                 <li id="question">New to this platform?</li>
                 <li>
                     <Link to="/app" style={{textDecoration: 'none', color: 'white'}}>
