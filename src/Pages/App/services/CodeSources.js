@@ -49,7 +49,7 @@ export const codeSources = Object.freeze({
         The dp formula for this problem is: dp[i][j] = min(dp[i - 1][j - 1], dp[i - 1][j], dp[i - 1][j + 1]). 
         We apply this formula to every cell in the matrix to ensure that we achieve the smallest possible falling sum for each cell.
       `,
-      keys: 'N = num of rows and M = num of columns',
+      keys: 'N = number of rows and M = number of columns',
       timeComplexity: 'Time complexity - O(N * M)',
       spaceComplexity: 'Space complexity - O(N * M)'
     },
