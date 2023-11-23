@@ -15,7 +15,7 @@ My goal was to make more difficult algorithm topics such as Dynamic Programming 
 Here is a list of algorithms that can be visualised:
 
 - Depth-First Search
-- Breadhth-First Search
+- Breadth-First Search
 - Dijkstras Algorithm
 - Dynamic Programming
 
